@@ -1,3 +1,4 @@
+import { formatMoney } from "../ui/format";
 export type Verdict = "ALLOW" | "BLOCK" | "REVIEW";
 export type Risk = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
 export type Category =
@@ -116,10 +117,7 @@ let token = "";
 export function configured() {
   return Boolean(base);
 }
-export const money = (value: number, currency = "INR") =>
-  new Intl.NumberFormat("en-IN", { style: "currency", currency }).format(
-    value / 100,
-  );
+export const money = formatMoney;
 export async function api(path: string, body?: unknown): Promise<Result> {
   if (!base)
     throw new Error(
@@ -140,8 +138,14 @@ export async function api(path: string, body?: unknown): Promise<Result> {
       throw new Error(
         result.reason || "Secure server temporarily unavailable. Please retry.",
       );
+    window.dispatchEvent(
+      new CustomEvent("sentinel:connection", { detail: true }),
+    );
     return result;
   } catch (error) {
+    window.dispatchEvent(
+      new CustomEvent("sentinel:connection", { detail: false }),
+    );
     if (
       error instanceof Error &&
       !["TypeError", "TimeoutError", "AbortError"].includes(error.name)

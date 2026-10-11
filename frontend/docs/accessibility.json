@@ -1,0 +1,146 @@
+[
+  {
+    "state": "empty-chat-role-selector",
+    "theme": "light",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "state": "empty-chat-role-selector",
+    "theme": "light",
+    "width": 1024,
+    "violations": []
+  },
+  {
+    "state": "empty-chat-role-selector",
+    "theme": "light",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "state": "empty-chat-role-selector",
+    "theme": "dark",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "state": "empty-chat-role-selector",
+    "theme": "dark",
+    "width": 1024,
+    "violations": []
+  },
+  {
+    "state": "empty-chat-role-selector",
+    "theme": "dark",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "state": "payment-review",
+    "theme": "light",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "state": "payment-review",
+    "theme": "light",
+    "width": 1024,
+    "violations": []
+  },
+  {
+    "state": "payment-review",
+    "theme": "light",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "state": "payment-review",
+    "theme": "dark",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "state": "payment-review",
+    "theme": "dark",
+    "width": 1024,
+    "violations": []
+  },
+  {
+    "state": "payment-review",
+    "theme": "dark",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "state": "dashboard-events",
+    "theme": "light",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "state": "dashboard-events",
+    "theme": "light",
+    "width": 1024,
+    "violations": []
+  },
+  {
+    "state": "dashboard-events",
+    "theme": "light",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "state": "dashboard-events",
+    "theme": "dark",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "state": "dashboard-events",
+    "theme": "dark",
+    "width": 1024,
+    "violations": []
+  },
+  {
+    "state": "dashboard-events",
+    "theme": "dark",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "state": "attack-lab-evaluated",
+    "theme": "light",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "state": "attack-lab-evaluated",
+    "theme": "light",
+    "width": 1024,
+    "violations": []
+  },
+  {
+    "state": "attack-lab-evaluated",
+    "theme": "light",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "state": "attack-lab-evaluated",
+    "theme": "dark",
+    "width": 1440,
+    "violations": []
+  },
+  {
+    "state": "attack-lab-evaluated",
+    "theme": "dark",
+    "width": 1024,
+    "violations": []
+  },
+  {
+    "state": "attack-lab-evaluated",
+    "theme": "dark",
+    "width": 390,
+    "violations": []
+  }
+]

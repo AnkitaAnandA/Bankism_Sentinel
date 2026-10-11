@@ -1,4 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import {
+  ArrowUpRight,
+  FlaskConical,
+  ShieldCheck,
+  LockKeyhole,
+} from "lucide-react";
+import { Button, EmptyState, ErrorState, Badge, Textarea, Table } from "../ui";
+import { recordAnalyzeLatency } from "../ui/measurements";
 import ThreatCard from "../components/ThreatCard";
 import { api, money, type Evaluation, type Result } from "../services/api";
 const attacks = [
@@ -22,6 +30,7 @@ const attacks = [
   ["Normal transfer", "Transfer ₹1,500 to Rahul"],
 ];
 export default function AttackLab({ user }: { user: string }) {
+  const submitting = useRef(false);
   const [text, setText] = useState(attacks[5][1]),
     [result, setResult] = useState<Result | null>(null),
     [rows, setRows] = useState<Evaluation[]>([]),
@@ -30,36 +39,47 @@ export default function AttackLab({ user }: { user: string }) {
     [locked, setLocked] = useState(true),
     [showcase, setShowcase] = useState("");
   async function run() {
+    if (submitting.current) return;
+    submitting.current = true;
     setBusy(true);
     setError("");
     try {
+      const start = performance.now();
       setResult(await api("/api/firewall/analyze", { message: text }));
+      recordAnalyzeLatency(performance.now() - start);
     } catch (e) {
       setError((e as Error).message);
     } finally {
+      submitting.current = false;
       setBusy(false);
     }
   }
   async function evaluate() {
+    if (submitting.current) return;
+    submitting.current = true;
     setBusy(true);
     setError("");
     try {
       const r = await api("/api/security/evaluate", {});
+      if (!r.evaluation.length) throw new Error(r.reason);
       setRows(r.evaluation);
-      setResult(r);
     } catch (e) {
       setError((e as Error).message);
     } finally {
+      submitting.current = false;
       setBusy(false);
     }
   }
   async function containment() {
+    if (submitting.current || (locked && user !== "alice")) return;
+    submitting.current = true;
     setBusy(true);
     setError("");
     setShowcase("");
     try {
       if (!locked) {
         const r = await api("/api/security/evaluate", {});
+        if (!r.evaluation[1]) throw new Error(r.reason);
         setRows(r.evaluation);
         setShowcase(
           `Isolated baseline simulation: ${r.evaluation[1].unauthorized_transfers} unauthorized sandbox debits in the dataset. The application guard remains enabled.`,
@@ -91,6 +111,7 @@ export default function AttackLab({ user }: { user: string }) {
     } catch (e) {
       setError((e as Error).message);
     } finally {
+      submitting.current = false;
       setBusy(false);
     }
   }
@@ -99,20 +120,30 @@ export default function AttackLab({ user }: { user: string }) {
       <div className="page-heading">
         <div>
           <div className="eyebrow">ADVERSARIAL TESTING</div>
-          <h1>Test the boundary.</h1>
+          <h1>Make the threat visible.</h1>
           <p>
             Inspect attacks. Compare detectors. Demonstrate financial
             containment.
           </p>
         </div>
-        <span className="pill">ISOLATED EVALUATION</span>
+        <Badge tone="info">
+          <FlaskConical size={14} aria-hidden="true" />
+          Isolated evaluation
+        </Badge>
       </div>
-      {error && (
-        <div role="alert" className="error">
-          {error}
+      {error && <ErrorState message={error} />}
+      <div className="lab-guide">
+        <ShieldCheck size={20} aria-hidden="true" />
+        <div>
+          <strong>A three-minute guided demo</strong>
+          <p>
+            1. Inspect a memo injection. 2. Run the detector comparison. 3.
+            Attempt payment substitution. The application guard stays enabled
+            throughout.
+          </p>
         </div>
-      )}
-      <div className="bank-layout">
+      </div>
+      <div className="lab-layout">
         <div>
           <section className="panel attack-console">
             <div className="panel-heading">
@@ -123,6 +154,7 @@ export default function AttackLab({ user }: { user: string }) {
               {attacks.map(([label, value]) => (
                 <button
                   key={label}
+                  aria-pressed={text === value}
                   onClick={() => setText(value)}
                   disabled={busy}
                 >
@@ -137,24 +169,28 @@ export default function AttackLab({ user }: { user: string }) {
             <label htmlFor="attack-text" className="eyebrow">
               UNTRUSTED INPUT
             </label>
-            <textarea
+            <Textarea
               id="attack-text"
               rows={5}
               maxLength={2000}
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
-            <button
-              className="primary"
+            <Button
+              variant="primary"
               onClick={run}
+              loading={busy}
               disabled={busy || !text.trim()}
             >
-              {busy ? "Inspecting…" : "Inspect request ↗"}
-            </button>
+              Inspect request <ArrowUpRight size={16} aria-hidden="true" />
+            </Button>
           </section>
           <section className="panel showcase">
             <div className="eyebrow">DEMO 03 · CLASSIFIER BYPASS</div>
-            <h2>Detection fails. Funds stay safe.</h2>
+            <h2 className="inline">
+              <LockKeyhole size={19} aria-hidden="true" />
+              Detection fails. Funds stay safe.
+            </h2>
             <p>
               Confirm ₹1,000 → Rahul, then attempt ₹10,000 → unknown payee
               through a compromised tool request.
@@ -162,19 +198,26 @@ export default function AttackLab({ user }: { user: string }) {
             <label className="switch-label">
               <input
                 type="checkbox"
+                disabled={busy}
                 checked={locked}
                 onChange={(e) => setLocked(e.target.checked)}
               />
-              Financial Intent Lock{" "}
-              {locked ? "ON" : "OFF · evaluation sandbox only"}
+              {locked
+                ? "Guarded substitution demo"
+                : "Unsafe baseline sandbox · comparison only"}
             </label>
-            <button
-              className="primary"
+            <Button
+              variant="primary"
               onClick={containment}
+              loading={busy}
               disabled={busy || (locked && user !== "alice")}
             >
               Simulate substitution
-            </button>
+            </Button>
+            <p className="small muted">
+              The actual execution guard is always enabled. Changing this
+              comparison mode never disables authorization.
+            </p>
             {locked && user !== "alice" && (
               <p className="muted">
                 Select Aditi's customer session for the Rahul demonstration.
@@ -198,45 +241,45 @@ export default function AttackLab({ user }: { user: string }) {
               databases
             </p>
           </div>
-          <button onClick={evaluate} disabled={busy}>
-            {busy ? "Running…" : "Run evaluation"}
-          </button>
+          <Button onClick={evaluate} loading={busy} disabled={busy}>
+            <FlaskConical size={16} aria-hidden="true" />
+            Run evaluation
+          </Button>
         </div>
         {rows.length ? (
-          <div className="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>Configuration</th>
-                  <th>Recall</th>
-                  <th>False positives</th>
-                  <th>Unauthorized debits</th>
-                  <th>Schema validity</th>
-                  <th>Valid completion</th>
-                  <th>Replay prevention</th>
-                  <th>Tamper rejection</th>
+          <Table label="Detector comparison — scroll to inspect all metrics">
+            <thead>
+              <tr>
+                <th>Configuration</th>
+                <th>Recall</th>
+                <th>False positives</th>
+                <th>Unauthorized debits</th>
+                <th>Schema validity</th>
+                <th>Valid completion</th>
+                <th>Replay prevention</th>
+                <th>Tamper rejection</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.configuration}>
+                  <td>{r.configuration}</td>
+                  <td>{(r.recall * 100).toFixed(1)}%</td>
+                  <td>{(r.false_positive_rate * 100).toFixed(1)}%</td>
+                  <td>{r.unauthorized_transfers}</td>
+                  <td>{(r.schema_validity * 100).toFixed(1)}%</td>
+                  <td>{(r.valid_transfer_completion * 100).toFixed(1)}%</td>
+                  <td>{(r.duplicate_prevention * 100).toFixed(1)}%</td>
+                  <td>{(r.tamper_rejection * 100).toFixed(1)}%</td>
                 </tr>
-              </thead>
-              <tbody>
-                {rows.map((r) => (
-                  <tr key={r.configuration}>
-                    <td>{r.configuration}</td>
-                    <td>{(r.recall * 100).toFixed(1)}%</td>
-                    <td>{(r.false_positive_rate * 100).toFixed(1)}%</td>
-                    <td>{r.unauthorized_transfers}</td>
-                    <td>{(r.schema_validity * 100).toFixed(1)}%</td>
-                    <td>{(r.valid_transfer_completion * 100).toFixed(1)}%</td>
-                    <td>{(r.duplicate_prevention * 100).toFixed(1)}%</td>
-                    <td>{(r.tamper_rejection * 100).toFixed(1)}%</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </Table>
         ) : (
-          <p className="empty">
-            Run the suite to measure detector and execution behavior.
-          </p>
+          <EmptyState
+            title="Compare the three defenses"
+            description="Run 81 synthetic cases against keyword-only, classifier-only and hybrid defenses. Results are measured in disposable sandbox ledgers."
+          />
         )}
         <p className="small muted">
           Small synthetic dataset: feasibility evidence, not production

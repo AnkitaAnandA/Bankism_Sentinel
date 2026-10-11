@@ -1,0 +1,404 @@
+{
+  "checks": [
+    "Customer analyst navigation locked",
+    "Technical JSON redacts token and integrity tag, clipboard copy works",
+    "Prepare → consent → execute → receipt; double click causes one execution",
+    "Cancel makes no execute call",
+    "Rahul customer gets appropriate demo payee",
+    "Analyst event dialog opens, Escape closes, no payment action exposed",
+    "Memo injection blocked by real firewall API",
+    "81-case evaluation populates three actual configurations",
+    "Measured browser latency and evaluation-derived zero displayed with explicit scope",
+    "Substitution rejected, real balance unchanged",
+    "Expiry fixture hides authorization and makes no execute request",
+    "Theme persists; browser storage contains theme only",
+    "Cold-start, error and retry fixtures recover",
+    "Enter sends; Shift+Enter preserves newline"
+  ],
+  "shots": [
+    "empty-chat-role-selector-light-1440.png",
+    "empty-chat-role-selector-light-1024.png",
+    "empty-chat-role-selector-light-390.png",
+    "empty-chat-role-selector-dark-1440.png",
+    "empty-chat-role-selector-dark-1024.png",
+    "empty-chat-role-selector-dark-390.png",
+    "balance-allow-light-1440.png",
+    "balance-allow-light-1024.png",
+    "balance-allow-light-390.png",
+    "balance-allow-dark-1440.png",
+    "balance-allow-dark-1024.png",
+    "balance-allow-dark-390.png",
+    "payment-review-light-1440.png",
+    "payment-review-light-1024.png",
+    "payment-review-light-390.png",
+    "payment-review-dark-1440.png",
+    "payment-review-dark-1024.png",
+    "payment-review-dark-390.png",
+    "payment-success-light-1440.png",
+    "payment-success-light-1024.png",
+    "payment-success-light-390.png",
+    "payment-success-dark-1440.png",
+    "payment-success-dark-1024.png",
+    "payment-success-dark-390.png",
+    "blocked-light-1440.png",
+    "blocked-light-1024.png",
+    "blocked-light-390.png",
+    "blocked-dark-1440.png",
+    "blocked-dark-1024.png",
+    "blocked-dark-390.png",
+    "clarification-light-1440.png",
+    "clarification-light-1024.png",
+    "clarification-light-390.png",
+    "clarification-dark-1440.png",
+    "clarification-dark-1024.png",
+    "clarification-dark-390.png",
+    "cancelled-light-1440.png",
+    "cancelled-light-1024.png",
+    "cancelled-light-390.png",
+    "cancelled-dark-1440.png",
+    "cancelled-dark-1024.png",
+    "cancelled-dark-390.png",
+    "dashboard-events-light-1440.png",
+    "dashboard-events-light-1024.png",
+    "dashboard-events-light-390.png",
+    "dashboard-events-dark-1440.png",
+    "dashboard-events-dark-1024.png",
+    "dashboard-events-dark-390.png",
+    "event-details-light-1440.png",
+    "event-details-light-1024.png",
+    "event-details-light-390.png",
+    "event-details-dark-1440.png",
+    "event-details-dark-1024.png",
+    "event-details-dark-390.png",
+    "dashboard-filter-empty-light-1440.png",
+    "dashboard-filter-empty-light-1024.png",
+    "dashboard-filter-empty-light-390.png",
+    "dashboard-filter-empty-dark-1440.png",
+    "dashboard-filter-empty-dark-1024.png",
+    "dashboard-filter-empty-dark-390.png",
+    "dashboard-empty-fixture-light-1440.png",
+    "dashboard-empty-fixture-light-1024.png",
+    "dashboard-empty-fixture-light-390.png",
+    "dashboard-empty-fixture-dark-1440.png",
+    "dashboard-empty-fixture-dark-1024.png",
+    "dashboard-empty-fixture-dark-390.png",
+    "attack-lab-before-light-1440.png",
+    "attack-lab-before-light-1024.png",
+    "attack-lab-before-light-390.png",
+    "attack-lab-before-dark-1440.png",
+    "attack-lab-before-dark-1024.png",
+    "attack-lab-before-dark-390.png",
+    "attack-lab-evaluated-light-1440.png",
+    "attack-lab-evaluated-light-1024.png",
+    "attack-lab-evaluated-light-390.png",
+    "attack-lab-evaluated-dark-1440.png",
+    "attack-lab-evaluated-dark-1024.png",
+    "attack-lab-evaluated-dark-390.png",
+    "dashboard-containment-light-1440.png",
+    "dashboard-containment-light-1024.png",
+    "dashboard-containment-light-390.png",
+    "dashboard-containment-dark-1440.png",
+    "dashboard-containment-dark-1024.png",
+    "dashboard-containment-dark-390.png",
+    "substitution-contained-light-1440.png",
+    "substitution-contained-light-1024.png",
+    "substitution-contained-light-390.png",
+    "substitution-contained-dark-1440.png",
+    "substitution-contained-dark-1024.png",
+    "substitution-contained-dark-390.png",
+    "expired-fixture-light-1440.png",
+    "expired-fixture-light-1024.png",
+    "expired-fixture-light-390.png",
+    "expired-fixture-dark-1440.png",
+    "expired-fixture-dark-1024.png",
+    "expired-fixture-dark-390.png",
+    "cold-start-fixture-light-1440.png",
+    "cold-start-fixture-light-1024.png",
+    "cold-start-fixture-light-390.png",
+    "cold-start-fixture-dark-1440.png",
+    "cold-start-fixture-dark-1024.png",
+    "cold-start-fixture-dark-390.png",
+    "error-fixture-light-1440.png",
+    "error-fixture-light-1024.png",
+    "error-fixture-light-390.png",
+    "error-fixture-dark-1440.png",
+    "error-fixture-dark-1024.png",
+    "error-fixture-dark-390.png"
+  ],
+  "contrast": [
+    {
+      "theme": "light",
+      "foreground": "text",
+      "background": "surface",
+      "ratio": 13.48
+    },
+    {
+      "theme": "light",
+      "foreground": "text-muted",
+      "background": "surface-raised",
+      "ratio": 5.71
+    },
+    {
+      "theme": "light",
+      "foreground": "accent-contrast",
+      "background": "accent",
+      "ratio": 5.35
+    },
+    {
+      "theme": "light",
+      "foreground": "allow-fg",
+      "background": "allow-bg",
+      "ratio": 6.75
+    },
+    {
+      "theme": "light",
+      "foreground": "review-fg",
+      "background": "review-bg",
+      "ratio": 6.14
+    },
+    {
+      "theme": "light",
+      "foreground": "block-fg",
+      "background": "block-bg",
+      "ratio": 6.56
+    },
+    {
+      "theme": "light",
+      "foreground": "info-fg",
+      "background": "info-bg",
+      "ratio": 6.76
+    },
+    {
+      "theme": "dark",
+      "foreground": "text",
+      "background": "surface",
+      "ratio": 15.39
+    },
+    {
+      "theme": "dark",
+      "foreground": "text-muted",
+      "background": "surface-raised",
+      "ratio": 7.55
+    },
+    {
+      "theme": "dark",
+      "foreground": "accent-contrast",
+      "background": "accent",
+      "ratio": 9.29
+    },
+    {
+      "theme": "dark",
+      "foreground": "allow-fg",
+      "background": "allow-bg",
+      "ratio": 7.87
+    },
+    {
+      "theme": "dark",
+      "foreground": "review-fg",
+      "background": "review-bg",
+      "ratio": 8.25
+    },
+    {
+      "theme": "dark",
+      "foreground": "block-fg",
+      "background": "block-bg",
+      "ratio": 8.36
+    },
+    {
+      "theme": "dark",
+      "foreground": "info-fg",
+      "background": "info-bg",
+      "ratio": 7.95
+    }
+  ],
+  "accessibility": [
+    {
+      "state": "empty-chat-role-selector",
+      "theme": "light",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "state": "empty-chat-role-selector",
+      "theme": "light",
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "state": "empty-chat-role-selector",
+      "theme": "light",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "state": "empty-chat-role-selector",
+      "theme": "dark",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "state": "empty-chat-role-selector",
+      "theme": "dark",
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "state": "empty-chat-role-selector",
+      "theme": "dark",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "state": "payment-review",
+      "theme": "light",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "state": "payment-review",
+      "theme": "light",
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "state": "payment-review",
+      "theme": "light",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "state": "payment-review",
+      "theme": "dark",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "state": "payment-review",
+      "theme": "dark",
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "state": "payment-review",
+      "theme": "dark",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "state": "dashboard-events",
+      "theme": "light",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "state": "dashboard-events",
+      "theme": "light",
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "state": "dashboard-events",
+      "theme": "light",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "state": "dashboard-events",
+      "theme": "dark",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "state": "dashboard-events",
+      "theme": "dark",
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "state": "dashboard-events",
+      "theme": "dark",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "state": "attack-lab-evaluated",
+      "theme": "light",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "state": "attack-lab-evaluated",
+      "theme": "light",
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "state": "attack-lab-evaluated",
+      "theme": "light",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "state": "attack-lab-evaluated",
+      "theme": "dark",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "state": "attack-lab-evaluated",
+      "theme": "dark",
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "state": "attack-lab-evaluated",
+      "theme": "dark",
+      "width": 390,
+      "violations": []
+    }
+  ],
+  "initialCLS": 0,
+  "js": [
+    {
+      "file": "AttackLab-B-PSanWZ.js",
+      "rawBytes": 7464,
+      "gzipBytes": 2868
+    },
+    {
+      "file": "BankSimulator-DIU5sSLx.js",
+      "rawBytes": 15957,
+      "gzipBytes": 5488
+    },
+    {
+      "file": "Dashboard-CZwkhMoQ.js",
+      "rawBytes": 8908,
+      "gzipBytes": 3639
+    },
+    {
+      "file": "index-BQ3eNXZw.js",
+      "rawBytes": 211935,
+      "gzipBytes": 67067
+    },
+    {
+      "file": "measurements-BcII84Sg.js",
+      "rawBytes": 210,
+      "gzipBytes": 171
+    },
+    {
+      "file": "ThreatCard-yHlXHvEd.js",
+      "rawBytes": 3389,
+      "gzipBytes": 1342
+    }
+  ],
+  "initialMainGzipBytes": 67067,
+  "conservativeAllJSGzipBytes": 80575,
+  "runtimeErrors": [],
+  "executionRequestCount": 2,
+  "fixtureStates": [
+    "empty audit",
+    "expiry",
+    "cold start",
+    "error"
+  ],
+  "browser": "Installed Chrome (Chromium engine)"
+}

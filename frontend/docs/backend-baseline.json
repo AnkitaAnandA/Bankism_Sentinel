@@ -1,0 +1,166 @@
+[
+  {
+    "hash": "5B703CA38D3FD391F3E889F7BA893F94B921FF9E7B7E5D8D6622D5F7DACA7049",
+    "path": "backend\\.python-version"
+  },
+  {
+    "hash": "CA514049D35B724E5FC17978217C2BD95595552AC56D80A6C538D240D22029BD",
+    "path": "backend\\pyproject.toml"
+  },
+  {
+    "hash": "B00D3E79A4D183513AD66708840A9A60976B296BDF48E9A71F764DB19D5320E9",
+    "path": "backend\\requirements.txt"
+  },
+  {
+    "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "backend\\app\\__init__.py"
+  },
+  {
+    "hash": "4FE35BAE6A49218EBB4E997449C6E25F2E43F231B61F70B52FD110C5DF61D7B8",
+    "path": "backend\\app\\config.py"
+  },
+  {
+    "hash": "254A8314DFF18264AF4B864C2342CF4D48EAE68B385FD38BCBCADEC79FBBF5CE",
+    "path": "backend\\app\\main.py"
+  },
+  {
+    "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "backend\\app\\api\\__init__.py"
+  },
+  {
+    "hash": "C830B5A9556BE95A25FFDE80F41DB148930F4A9F050B8480F78D88BEEDB79B39",
+    "path": "backend\\app\\api\\banking.py"
+  },
+  {
+    "hash": "D4D2AEE784C2B207A0CF85FBA68650938316B15DE99B509D3CBA9BA2337F5E8E",
+    "path": "backend\\app\\api\\common.py"
+  },
+  {
+    "hash": "6C82EA8D3F7DA0286A9F9CCC5A97D3076194F5337FF8D5F08BACDF12A0E93D49",
+    "path": "backend\\app\\api\\firewall.py"
+  },
+  {
+    "hash": "3507FA2F6024B08C8755A88FA491A1B760B1861FD3D5977C504D85ED3BA68FE5",
+    "path": "backend\\app\\api\\security.py"
+  },
+  {
+    "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "backend\\app\\banking\\__init__.py"
+  },
+  {
+    "hash": "BED2822ECF72AB3A81F3B8B3383D94DEAAA6DE7179FB2FCC767E28D5895D82F1",
+    "path": "backend\\app\\banking\\intent_parser.py"
+  },
+  {
+    "hash": "F90497CB89BD28FBDC25F8B141303544783868CDCEA583293D9254EB570B330E",
+    "path": "backend\\app\\banking\\mock_bank.py"
+  },
+  {
+    "hash": "5A67F76E983875E1E97290C56D5C1F799999F9A2F551FA94BBAE5326EF6493B6",
+    "path": "backend\\app\\banking\\queries.py"
+  },
+  {
+    "hash": "A2D9C7B4461BD58035C696BB53CCA5DA181883F0DD2F8CF5A156B01BE25EA37A",
+    "path": "backend\\app\\banking\\transfer_service.py"
+  },
+  {
+    "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "backend\\app\\data\\__init__.py"
+  },
+  {
+    "hash": "AA930483791F0D9CAA7BDF848EBEFD0CD1B7923B8EE7E6E10F08FF4BB826278A",
+    "path": "backend\\app\\data\\seed.py"
+  },
+  {
+    "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "backend\\app\\models\\__init__.py"
+  },
+  {
+    "hash": "AFA7CAE154BA9DABCC827547C2AC1D842F46C5091EDB158071A2AA3AE1E9766C",
+    "path": "backend\\app\\models\\database.py"
+  },
+  {
+    "hash": "E9FC663FBDAB230A6F103F7CAA0AB5EF166CD0EFAADCFBC54BAEE1202F516AD8",
+    "path": "backend\\app\\models\\schemas.py"
+  },
+  {
+    "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "backend\\app\\security\\__init__.py"
+  },
+  {
+    "hash": "011497103F4E7B464D1A6C55F23F86242E7751B424E2DE7D08CB4E3EA2FA0FD0",
+    "path": "backend\\app\\security\\audit.py"
+  },
+  {
+    "hash": "86CCC60EE9CFE434C7A4A99E7E648EDE8E97D827FC36F35CBFD3ADCE91C3A5D2",
+    "path": "backend\\app\\security\\evaluation.py"
+  },
+  {
+    "hash": "73339CE9B19D5EDB511DB0ACAB4D6E121788A17C7F66B3A28A9AFABF96B75752",
+    "path": "backend\\app\\security\\gateway.py"
+  },
+  {
+    "hash": "0FAA5A831F7E32C3B2FFF12FD73D4077974CEBB598BB1F0B509D378A64E795D7",
+    "path": "backend\\app\\security\\intent_lock.py"
+  },
+  {
+    "hash": "2430DFD3AE3A6C16F1A7ADD785FEA3626278A90C620E6250A54ED34FBBE6CCDC",
+    "path": "backend\\app\\security\\llm_classifier.py"
+  },
+  {
+    "hash": "42B46C7264EA9009A7DEEBA473081DDC6ACADF2C7EEBA1794C95722DD5EE5CCA",
+    "path": "backend\\app\\security\\normalizer.py"
+  },
+  {
+    "hash": "296CE4FEB28B1557384A214316C41C46A292F7384DC1E673A55AB89EF9EC89CC",
+    "path": "backend\\app\\security\\policy_engine.py"
+  },
+  {
+    "hash": "01F17BD5F95F12ED6BBF6E2925553E3F946949FA4AA6348752C912DA6EA7E984",
+    "path": "backend\\app\\security\\risk_engine.py"
+  },
+  {
+    "hash": "80FE9115ACAE9D197901FEE66E72E1314C6DE20DC02D2F030CF947B888A4C70F",
+    "path": "backend\\app\\security\\rule_detector.py"
+  },
+  {
+    "hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "backend\\tests\\__init__.py"
+  },
+  {
+    "hash": "2AFD98FB0BB57428A4B3A78E37D3539D150F7DEEB780D8BC4A0AF2D09FE2FAC0",
+    "path": "backend\\tests\\attack_cases.json"
+  },
+  {
+    "hash": "B6E6E09C3BE76537414906803B3D74872B292F2FDE69517DFC8FDB7BF18A56C7",
+    "path": "backend\\tests\\conftest.py"
+  },
+  {
+    "hash": "5CE05A8BB4178655C6F6670453A9F56C61E944A1EB81C6FDBF9A46196397E992",
+    "path": "backend\\tests\\test_api.py"
+  },
+  {
+    "hash": "29E8B75E3C0D845F26D740E1F047AE3C76A7D5EF838EE13BD4D0E0F3F766F224",
+    "path": "backend\\tests\\test_classifier.py"
+  },
+  {
+    "hash": "938955B2DD19BEBA619E91C99FEF49C5EC74A4E8EDB094B6E5DF730BCDEFCA5E",
+    "path": "backend\\tests\\test_guard.py"
+  },
+  {
+    "hash": "3A4DE48A506288622155485458FEE4079A323E3C80DC1DB2CB58E058C7228C85",
+    "path": "backend\\tests\\test_injections.py"
+  },
+  {
+    "hash": "13CCCB45BAB3AD285117EABA1BE4D6062CC45851EFA7B7ACE531390D8FC9E883",
+    "path": "backend\\tests\\test_intent_lock.py"
+  },
+  {
+    "hash": "531FA8432ED2B96EF382679331F0004B44C5BCF0EEDD1445447DE900D3737133",
+    "path": "backend\\tests\\test_policy.py"
+  },
+  {
+    "hash": "0E867DC0AE1F0977F2D1F0205661C4787496C9E3C999495C649430E88C2E6B4B",
+    "path": "backend\\tests\\test_static.py"
+  }
+]

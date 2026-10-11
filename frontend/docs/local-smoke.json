@@ -1,0 +1,13 @@
+{
+  "base": "http://localhost:8000",
+  "checks": [
+    "D-drive static app loads",
+    "prepare/cancel",
+    "analyst dashboard/charts",
+    "theme toggle",
+    "real memo injection BLOCK",
+    "mobile no overflow"
+  ],
+  "consoleErrors": [],
+  "strictCSP": true
+}

@@ -1,0 +1,15 @@
+try {
+  const preference = localStorage.getItem("sentinel-theme");
+  document.documentElement.dataset.theme =
+    preference === "light" || preference === "dark"
+      ? preference
+      : matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+} catch {
+  document.documentElement.dataset.theme = matchMedia(
+    "(prefers-color-scheme: dark)",
+  ).matches
+    ? "dark"
+    : "light";
+}
