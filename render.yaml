@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: bankism-sentinel-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /health
+    envVars:
+      - key: ENV
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: INTENT_HMAC_KEY
+        generateValue: true
+      - key: SESSION_SIGNING_KEY
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: DATABASE_URL
+        value: sqlite:///./bankism.db
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: LLM_MODEL
+        value: gemini-2.5-flash
+      - key: LLM_DAILY_BUDGET
+        value: '1000'
+      - key: RATE_LIMIT_PER_MINUTE
+        value: '120'
+      - key: RATE_LIMIT_EVALUATE
+        value: '3'
+# LLM_API_KEY is intentionally optional: add it in Render Environment for real classification.

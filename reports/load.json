@@ -1,0 +1,24 @@
+{
+  "analyze": {
+    "samples": 100,
+    "p50_ms": 9.805,
+    "p95_ms": 13.166,
+    "p99_ms": 19.74,
+    "requests_per_second": 98.85
+  },
+  "prepare": {
+    "samples": 100,
+    "p50_ms": 15.169,
+    "p95_ms": 30.319,
+    "p99_ms": 47.716,
+    "requests_per_second": 56.7
+  },
+  "execute": {
+    "samples": 100,
+    "p50_ms": 16.149,
+    "p95_ms": 47.415,
+    "p99_ms": 66.376,
+    "requests_per_second": 17.86
+  },
+  "methodology": "Sequential localhost HTTP; execute throughput includes preparation and confirmation; default samples 100. Run against isolated disposable demo data with elevated test quota."
+}

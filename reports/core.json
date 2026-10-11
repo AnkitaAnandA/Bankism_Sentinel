@@ -1,0 +1,8 @@
+{
+  "deterministic_samples": 500,
+  "deterministic_p50_ms": 1.036,
+  "deterministic_p95_ms": 2.171,
+  "deterministic_p99_ms": 2.675,
+  "local_cold_start_ms": 1398.173,
+  "methodology": "Normalizer + rules + parser + real SQLAlchemy policy reads; cold start includes fresh tables/seeding/import and first HTTP health response, one local process."
+}

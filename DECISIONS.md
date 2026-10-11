@@ -1,0 +1,18 @@
+# Decisions
+
+1. TRD governs technical conflicts; PRD governs P0 scope. Code Quality and Pasted text add stricter validation, performance, deployment and evaluation requirements. All four documents and the original text attachment were read. Synced sources remain untouched.
+2. Confirm records explicit consent; execute is a separate call. The TRD permits confirmation to execute, but its endpoint table and independent guard favor separating these actions. Only execute returns execution_allowed=true.
+3. Money uses integer paise; parsing supports a bounded grammar and asks for clarification rather than guessing. Unknown or compound transfer instructions do not become executable intents.
+4. SQLite is single-instance, one worker, BEGIN IMMEDIATE, WAL. DATABASE_URL supports PostgreSQL with row locks; production multi-instance operation requires distributed rate limits and budget control before scaling.
+5. Demo auth uses short-lived signed bearer tokens mapping to seeded server identities. Public demo login intentionally allows selecting synthetic customer/analyst identities. This is not real banking authentication.
+6. Outage differs from offline demo: absent key intentionally uses MockClassifier; a configured provider failure forbids new transfer locks. Existing confirmations also fail closed while that configured classifier is unhealthy.
+7. Corrections cancel the old pending intent and create a fresh signed intent. This avoids mutating a canonical record and ensures a stale confirmation cannot authorize corrected terms. Confirmed fields are immutable.
+8. Evaluation runs isolated synthetic databases, never the user's demo ledger. A/B are deliberately unsafe comparison sandboxes and cannot be enabled on the actual execution endpoint. Intent Lock off is only an evaluation demonstration.
+9. D: creation verified. Build is staged in the permitted workspace, then copied with approval to D:\bankism-sentinel. No synced files are moved.
+10. Production secrets must be independent and at least 32 characters; docs disabled, CORS explicitly configured. SQLite on Render free hosting is ephemeral; idempotent seeding does not imply durable ledger storage.
+11. Next: real OIDC/step-up confirmation, key rotation/KMS, Redis quotas, durable Postgres, external audit sink, Presidio, independent LLM Guard, CI and larger held-out evaluation.
+12. Dependency audit prompted security-fixed package updates. All Python transitive dependencies are frozen from a fresh environment; frontend versions and lockfile are pinned. Tailwind 4 uses its official PostCSS plugin. ORJSONResponse/httpx TestClient remain because the source documents require them; current-framework deprecation warnings are documented.
+13. Generic beneficiary descriptors request clarification rather than becoming guessed payee names. Corrections preserve the chosen account unless explicitly changed; an unknown named replacement payee is rejected.
+14. Comparison recall includes stateful malicious-case containment, so it is reported as detection/containment rather than model-only accuracy. Baseline replay/tamper metrics are observed from actual sandbox ledger effects, not assumed constants. Dataset denominators and intentionally unsafe baseline behavior are disclosed.
+15. CORS preflight responses also use the verdict schema and request IDs. Gateway denials are audited after their response is sent, and permitted-origin clients can read rate/body-limit verdicts. Daily limits use UTC calendar days; cross-account Postgres checks lock the user's row.
+16. Render/Vercel integrations are available but unconnected; no provider tokens or CLIs were present. Deployment remains outstanding. PostgreSQL and live LLM provider integrations require external staging verification.
